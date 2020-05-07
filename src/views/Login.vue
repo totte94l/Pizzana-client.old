@@ -53,7 +53,5 @@ export default {
 </script>
 
 <style>
-    #login_form {
 
-    }
 </style>

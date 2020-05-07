@@ -9,7 +9,8 @@ Vue.use(Vuex)
 const getDefaultState = () => {
   return {
     token: '',
-    user: {}
+    user: {},
+    menu: []
   }
 }
 
@@ -23,6 +24,9 @@ export default new Vuex.Store({
     },
     getUser: state => {
       return state.user
+    },
+    menu: state => {
+      return state.menu
     }
   },
   mutations: {
@@ -34,6 +38,18 @@ export default new Vuex.Store({
     },
     RESET: state => {
       Object.assign(state, getDefaultState())
+    },
+    SET_MENU: (state, menu) => {
+      state.menu = menu
+    },
+    UPDATE_MENU_ITEM: (state, item) => {
+      state.menu.map(arrItem => {
+        if (arrItem.id == item.id ) {
+          arrItem.name = item.name,
+          arrItem.ingredients = item.ingredients
+        }
+      })
+      console.log(item)
     }
   },
   actions: {
@@ -42,6 +58,13 @@ export default new Vuex.Store({
       commit('SET_USER', user)
       // set auth header
       Axios.defaults.headers.common.Authorization = `Bearer ${token}`
+    },
+    set_menu: ({ commit, dispatch }, { menu }) => {
+      commit('SET_MENU', menu)
+    },
+    update_menu_item: ({ commit, dispatch}, data ) => {
+      console.log(data);
+      commit('UPDATE_MENU_ITEM', data)
     },
     logout: ({ commit }) => {
       commit('RESET', '')

@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 
 import SignUp from '../views/SignUp.vue'
 import Login from '../views/Login.vue'
+import Meny from '../views/Meny.vue'
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: Login
+  },
+  {
+    path: '/meny',
+    name: 'meny',
+    component: Meny
   }
 ]
 

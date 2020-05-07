@@ -1,5 +1,5 @@
 <template>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
         <div class="container">
             <a class="navbar-brand" href="#">Pizzana</a>
 
@@ -9,6 +9,15 @@
 
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <template v-if="isLoggedIn">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item mr-auto">
+                            <a class="nav-link" href="#">Restauranginformation</a>
+                        </li>
+                        <li class="nav-item mr-auto">
+                            <routerLink to="/meny" class="nav-link">Meny</routerLink>
+                        </li>
+                    </ul>
+
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mr-auto">
                             <a class="nav-link" href="#">{{ user.username }}</a>
