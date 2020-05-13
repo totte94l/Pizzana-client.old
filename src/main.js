@@ -8,6 +8,7 @@ Vue.config.productionTip = false
 
 // set auth header
 Axios.defaults.headers.common.Authorization = `Bearer ${store.state.token}`
+Axios.defaults.headers.common['Content-Type'] = 'application/json' // for all requests
 
 new Vue({
   router,

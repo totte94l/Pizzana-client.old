@@ -44,12 +44,13 @@ export default new Vuex.Store({
     },
     UPDATE_MENU_ITEM: (state, item) => {
       state.menu.map(arrItem => {
-        if (arrItem.id == item.id ) {
-          arrItem.name = item.name,
+        if (arrItem.id === item.id) {
+          // eslint-disable-next-line no-unused-expressions
+          arrItem.name = item.name
           arrItem.ingredients = item.ingredients
+          arrItem.price = item.price
         }
       })
-      console.log(item)
     }
   },
   actions: {
@@ -62,8 +63,8 @@ export default new Vuex.Store({
     set_menu: ({ commit, dispatch }, { menu }) => {
       commit('SET_MENU', menu)
     },
-    update_menu_item: ({ commit, dispatch}, data ) => {
-      console.log(data);
+    update_menu_item: ({ commit, dispatch }, data) => {
+      console.log(data)
       commit('UPDATE_MENU_ITEM', data)
     },
     logout: ({ commit }) => {
